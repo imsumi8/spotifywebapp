@@ -1,7 +1,11 @@
-# Getting Started with Create React App
+## Spotify WebApp
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
+## Description
+This project was bootstrapped with javascript + React.
+Redux Toolkit is used as a state management system for the application.
+The web app store user’s saved playlist and show the previously saved list even after a page refresh.
+This project is a basic implementation of front-end tech stack mentioned with best practices so that project
+can be scalable, maintainable and testable.
 ## Available Scripts
 
 In the project directory, you can run:
