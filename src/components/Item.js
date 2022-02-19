@@ -1,8 +1,13 @@
 import React, { Fragment, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
-import ITEM_TYPE from "../data/types";
+import ITEM_TYPE from "../constants/types";
+import { useSelector, useDispatch } from "react-redux";
+import { MoveItem } from "../redux/actions";
 
-const Item = ({ item, index, moveItem, status }) => {
+const Item = ({ item, index, status }) => {
+  const dispatch = useDispatch();
+  const playlists = useSelector((state) => state.data);
+
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -30,7 +35,7 @@ const Item = ({ item, index, moveItem, status }) => {
       if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
         return;
       }
-      moveItem(dragIndex, hoverIndex);
+      dispatch(MoveItem(dragIndex, hoverIndex, playlists, status.id));
       item.index = hoverIndex;
     },
   });
@@ -53,7 +58,7 @@ const Item = ({ item, index, moveItem, status }) => {
           style={{ backgroundColor: status.color }}
         />
         <p className={"item-title"}>{item?.name}</p>
-        <p className={"item-status"}>{item.description}</p>
+        <p className={"item-status"}>{item?.description}</p>
       </div>
     </Fragment>
   );

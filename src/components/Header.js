@@ -1,9 +1,9 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({message}) => {
     return (
         <div className={"row"}>
-            <p className={"page-header"}>Spotify Web App</p>
+            <p className={"page-header"}>{message}</p>
         </div>
     );
 };

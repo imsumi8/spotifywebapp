@@ -13,7 +13,11 @@ async function fetchToken() {
         { headers: {
             'Authorization': 'Basic '+CLIENTSECRET_BASE64,
             'Content-Type':'application/x-www-form-urlencoded'
-        }});
+        }}).then(resp=>{
+            return resp;
+        }).catch(err => {
+            return {status:500,statusText:err.message};
+        });;
     return response;
 }
 
@@ -24,7 +28,11 @@ async function fetchFeaturedPlayList(authtoken) {
         { headers: {
             'Content-Type':'application/json',
             'Authorization':"Bearer "+authtoken
-        }});
+        }}).then(resp=>{
+            return resp;
+        }).catch(err => {
+            return {status:500,statusText:err.message};
+        });
     return response;
 }
 

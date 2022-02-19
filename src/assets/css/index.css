@@ -183,3 +183,7 @@ select {
 .close-btn:hover {
   background-color: #DCDCDC;
 }
+
+.text-danger {
+  color: rgb(228, 7, 7);
+}
